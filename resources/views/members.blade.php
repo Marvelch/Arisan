@@ -1,99 +1,96 @@
-@extends('layouts.app')
+@extends('layouts.sub_app')
 
-@section('content')
+@section('nav_menu')
+  <ul class="list-unstyled">
+    <li><a href="{{route('home')}}"> <i class="icon-home"></i>Dashboard </a></li>
+    <li><a href="{{route('profile')}}"> <i class="fa fa-id-card-o"></i>Profile </a></li>
+    <li><a href="{{route('donation')}}"> <i class="fa fa-credit-card "></i>Donasi </a></li>
+    <li class="active"><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Group</a></li>
+  </ul><span class="heading">Layanan</span>
+  <ul class="list-unstyled">
+    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Kontak </a></li>
+  </ul>
+@endsection
+@section('sub_content')
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <meta name="csrf_token" content="{{ csrf_token() }}" />
-<div class="container">
-
-<div class="row justify-content-center">
-        <div class="col-md-3">
-            
-            <div class="card">
-            <div class="card-header">Detail Group</div>
+<div class="content-inner">
+          <!-- Page Header-->
+          <header class="page-header">
+            <div class="container-fluid">
+              <h2 class="no-margin-bottom">Group Arisan</h2>
+            </div>
+          </header>
+          <!-- Form input  -->
+          <section class="forms"> 
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Basic Form-->
+                <div class="col-lg-4">
+                  <div class="card">
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Data Group</h3>
+                    </div>
                     <div class="card-body">
                     @foreach($group as $result)
-                    <!-- <div class="form-group">
-                        <label for="">Nama Group</label>
-                        <input type="text" class="form-control" disabled value="{{$result->groups_name}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Biaya</label>
-                        <input type="text" class="form-control" disabled value="{{$result->biaya}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Jumlah Peserta</label>
-                        <input type="text" class="form-control" disabled value="{{$result->jumlah_peserta}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Total Hadiah</label>
-                        <input type="text" class="form-control" disabled value="{{$result->total_hadiah}}">
-                    </div> -->
-                    <ul class="list-group h6">
-                        <li class="list-group-item" style="border-style: dotted;">Nama Group : {{$result->groups_name}}</li>
-                        <li class="list-group-item" style="border-style: dotted;">Biaya Rp {{$result->biaya}}</li>
-                        <li class="list-group-item" style="border-style: dotted;">Jumlah Peserta : {{$result->jumlah_peserta}} Orang</li>
-                        <li class="list-group-item" style="border-style: dotted;">Total Hadiah : Rp {{$result->total_hadiah}}</li>
+                    <ul class="list-group" style="border:none">
+                        <p>Nama Group : {{$result->groups_name}}</p>
+                        <p>Biaya : Rp {{$result->biaya}}</p>
+                        <p>Jumlah Peserta : {{$result->jumlah_peserta}} Orang</p>
+                        <p>Total Hadiah : Rp {{$result->total_hadiah}}</p>
                     </ul>
                     @endforeach
-                </div>
-            </div>
-        </div>
-        
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Detail Peserta</div>
-                        <div class="card-body">                    
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                    
-                            @if (Session::has('success'))
-                                <div class="alert alert-success text-center">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                    <p>{{ Session::get('success') }}</p>
-                                </div>
-                            @endif
-                     
-                            <div class="table-responsive">
-                                <form method="POST" id="dynamic_form">
-                                <span id="result"></span>
-                                
-                                <table class="table table-bordered table-striped" id="user_table">
-                            <thead>
-                                <tr>
-                                    <th>Nama</th>
-                                    <th>Email</th>
-                                    <th>Telpon</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                @csrf
-                                </tr>
-                            </tfoot>
-                        </table>
-                        <input type="submit" name="save" id="save" class="btn btn-outline-primary float-right" value="Simpan" />
-                        </form>
-                </div>
-                        </div>
                     </div>
+                  </div>
                 </div>
+                <!-- Horizontal Form-->
+                <div class="col-lg-8">
+                  <div class="card">
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Detail Peserta</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" id="dynamic_form">
+                            <span id="result"></span>
+                                <table class="table table-bordered table-striped" id="user_table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>Email</th>
+                                            <th>Telpon</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                <tbody>
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        @csrf
+                                    </tr>
+                                </tfoot>
+                                </table>
+                            <input type="submit" name="save" id="save" class="btn btn-outline-primary float-right" value="Simpan" />
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-        </div>
-    </div>
-</div>
-
+          </section>
+@foreach($group as $result)
 <script>
 $(document).ready(function(){
 
@@ -124,17 +121,28 @@ $(document).ready(function(){
  $(document).on('click', '#add', function(){
   count++;
   dynamic_field(count);
+
+  if(count > {{$result->jumlah_peserta}} -1)
+  {
+    $('#save').attr('disabled', true);
+  }
+
+  
+
  });
 
  $(document).on('click', '.remove', function(){
   count--;
   $(this).closest("tr").remove();
+  if(count <= {{$result->jumlah_peserta}} - 1) {
+    $('#save').attr('disabled', false);
+  }
  });
 
  $('#dynamic_form').on('submit', function(event){
         event.preventDefault();
         $.ajax({
-            url:'{{ route("xcmember.insert") }}',
+            url:'{{ route("members.insert") }}',
             method: 'POST',
             data:$(this).serialize(),
             dataType:'json',
@@ -156,7 +164,7 @@ $(document).ready(function(){
                 {   
                     dynamic_field(1);
                     $('#result').html('<div class="alert alert-success">'+data.success+'</div>');   
-                    window.location.href = "{{URL::to('xcarisan')}}"
+                    window.location.href = "{{URL::to('home')}}"
                     // $('#result').prop('href', 'http://www.example.com');
                 }
                 $('#save').attr('disabled', false);
@@ -166,4 +174,5 @@ $(document).ready(function(){
 });
 
 </script>
+@endforeach
 @endsection

@@ -50,7 +50,7 @@ class GroupController extends Controller
         $rentan_waktu_pengocokan = $request->get('rentan_waktu_pengocokan');
         $tanggal_mulai = $request->get('tanggal_mulai');
         $hasil_tanggal_mulai = date('Y-m-d', strtotime('+6 days',strtotime($tanggal_mulai)));
-        printf($hasil_tanggal_mulai);
+        // printf($hasil_tanggal_mulai);
 
         $x = new group ([
             'groups_name' => $request->get('groups_name'),
@@ -66,7 +66,7 @@ class GroupController extends Controller
 
         $x->save();
 
-        return redirect('xcmember');
+        return redirect('members');
         
     }
 

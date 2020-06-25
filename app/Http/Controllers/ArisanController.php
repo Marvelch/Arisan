@@ -28,8 +28,25 @@ class ArisanController extends Controller
 
     public function subarisan(Request $request)
     {   
+        $userID = Auth::user()->id;
         $groupId = $request->route('id');
         $subview = Group::WHERE('id',$groupId)->get();
+
+        /**
+         * Menampilkan id group dari tabel Group
+         * Pencarian dengan users_id dan statusnya 1
+         */
+
+        $group_ids = Group::WHERE('users_id',$userID)->WHERE('status',1)->get();
+
+        $db_access = Group::WHERE('id',$groupId)
+                            ->WHERE('users_id',$userID)
+                            ->count();
+
+        if($db_access == null)
+        {
+            return redirect('page_lost');
+        }
 
         $submember = Member::WHERE('group_id',$groupId)->get();
 
@@ -47,10 +64,7 @@ class ArisanController extends Controller
                 $randomresilt = $hsl->nama;
                 $members_id = $hsl->id;
                 $satu = 1;
-                Member::WHERE('id',$members_id)->update(['status_arisan' => $satu]);
-
-                /*Pilih pemenang terakhir*/
-                
+                Member::WHERE('id',$members_id)->update(['status_arisan' => $satu]);    
 
                 // Update Group Waktu Pengundian
                 $waktu_pengocokan = Group::WHERE('id',$groupId)->get();
@@ -63,22 +77,22 @@ class ArisanController extends Controller
 
                     Group::WHERE('id',$groupId)->update(['waktu_pengocokan' => $tomorrow]);
                 }
-
             }
         }
-
+       
         $pemenangs = Member::WHERE([['group_id','=',$groupId],['status_arisan','1']])->orderBy('updated_at', 'desc')->limit(1)->get();
-       
-       
-        // $result_pem[] = $pemenangs;
-        // echo $result_pem;
 
-        foreach($pemenangs as $ku)
+        if(!$pemenangs->isEmpty())
         {
-            $result_pem[] = $ku;
+            foreach($pemenangs as $hasil)
+            {
+                $hasil_pemenang[] = $hasil->nama;
+            }
+        }else{
+            $hasil_pemenang[] = "Tidak Tersedia";
         }
 
-        return view('subarisan',['subview' => $subview])->with(['submember' => $submember])->with(['x' => $tanggal])->with(['result_pem' => $result_pem]);
+        return view('subarisan',['subview' => $subview])->with(['submember' => $submember])->with(['x' => $tanggal])->with(['hasil_pemenang' => $hasil_pemenang]);
     }
 
     public function profile(Request $request)
@@ -106,18 +120,43 @@ class ArisanController extends Controller
 
         $userId = Auth::id();
 
+        $facebook_check = $request->facebook;
+        $twitter_check = $request->twitter;
+        $instagram_check = $request->instagram;
+
+        if($facebook_check == null)
+        {
+            $facebook = "http://bookingbook.my.id/";
+        }else{
+            $facebook = $request->facebook;
+        }
+
+        if($twitter_check  == null)
+        {
+            $twitter = "http://bookingbook.my.id/";
+        }else{
+            $twitter = $request->twitter;
+        }
+
+        if($instagram_check == null)
+        {
+            $instagram = "http://bookingbook.my.id/";
+        }else{
+            $instagram = $request->instagram;
+        }
+
         $update_users = [
+            'name' => $request->name,
             'phone' => $request->phone,
-            'email' => $request->email,
             'status' => $request->status,
-            'facebook' => $request->facebook,
-            'instagram' => $request->instagram,
-            'twitter' => $request->twitter
+            'facebook' => $facebook,
+            'instagram' => $instagram,
+            'twitter' => $twitter
         ];
 
         User::WHERE('id',$userId)->update($update_users);
 
-        return Redirect::to('xcprofile')
+        return Redirect::to('profile')
        ->with('success','Berhasil Melakukan Perubahan !');
     }
 
@@ -129,7 +168,13 @@ class ArisanController extends Controller
     public function Membersdata(Request $request)
     {
         $groups = Group::All()->get();
+        
         return view('Members_Data',['groups' => $groups]);
+    }
+
+    public function contact()
+    {
+        return view('contact');
     }
 
     /**

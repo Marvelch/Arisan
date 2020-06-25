@@ -1,71 +1,101 @@
-@extends('layouts.app')
+@extends('layouts.sub_app')
 
-@section('content')
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<div class="container">
-
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Ketentuan Layanan Arisanyo.com</div>
+@section('nav_menu')
+  <ul class="list-unstyled">
+    <li><a href="{{route('home')}}"> <i class="icon-home"></i>Dashboard </a></li>
+    <li><a href="{{route('profile')}}"> <i class="fa fa-id-card-o"></i>Profile </a></li>
+    <li><a href="{{route('donation')}}"> <i class="fa fa-credit-card "></i>Donasi </a></li>
+    <li class="active"><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Group</a></li>
+  </ul><span class="heading">Layanan</span>
+  <ul class="list-unstyled">
+    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Kontak </a></li>
+  </ul>
+@endsection
+@section('sub_content')
+<div class="content-inner">
+          <!-- Page Header-->
+          <header class="page-header">
+            <div class="container-fluid">
+              <h2 class="no-margin-bottom">Group Arisan</h2>
+            </div>
+          </header>
+          <!-- Form input  -->
+          <form action="/group/post" method="POST">
+          {{csrf_field()}}
+          <section class="forms"> 
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Basic Form-->
+                <div class="col-lg-6">
+                  <div class="card">
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Data Group</h3>
+                    </div>
                     <div class="card-body">
-                        <div class="card mb-3">
-                            <img class="card-img-top" src="https://images.dusdusan.com/product/kzbfhFwC1560755523_BANNER%20ARTIKEL%202-02.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Baca Ketentuan</h5>
-                            <p class="card-text">- Buat nama group berbeda dari sebelumnya. Sehingga tidak ada group yang memiliki nama yang sama pada satu admin arisan.</p>
-                            <p class="card-text">- Potongan harga untuk 1 group arisan sebesar 5% dari total pengumpulan dana. Sebagai biaya layanan yang diberikan oleh Arisanyo.com</p>
-                            <p class="card-text">- Tanggal selesai dan tanggal mulai akan membantu untuk mengetahui catatan waktu mulai arisan dan tanggal selesai sebagai tanggal penonaktifan group.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      <!-- <p>Perhatikan kembali pengisian data group arisan.</p> -->
+                      <form>
+                        <div class="form-group">
+                          <label class="form-control-label">Nama Group</label>
+                          <input type="text" class="form-control" name="groups_name" require="required">
                         </div>
+                        <div class="form-group">       
+                          <label class="form-control-label">Biaya</label>
+                          <input type="text" class="form-control" name="biaya" id="bayar" require="required">
+                        </div>
+                        <div class="form-group">       
+                          <label class="form-control-label">Tanggal Mulai</label>
+                          <input type="date" class="form-control" value="<?php echo date('Y-m-d') ?>" name="tanggal_mulai" require="required">
+                        </div>
+                        <div class="form-group">       
+                          <label class="form-control-label">Rentan Hari Pengocokan</label>
+                          <input type="text" class="form-control" type="number" name="rentan_waktu_pengocokan" require="required">
+                        </div>
+                        <div class="form-group">       
+                          <label class="form-control-label">Jumlah peserta</label>
+                          <input type="text" class="form-control" name="jumlah_peserta" id="diskon" require="required">
+                        </div><div class="form-group">       
+                          <label class="form-control-label">Total Dana</label>
+                          <input type="text" class="form-control" name="total_hadiah" id="Tbayar" readonly="readonly">
+                        </div>
+                        <div class="form-group pt-3">       
+                          <input type="submit" class="btn btn-primary px-lg-5 float-right m-3" name="btn_group" value="Buat">
+                        </div>
+                      </form>
                     </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Group Arisan</div>
+                <!-- Horizontal Form-->
+                <div class="col-lg-6">
+                  <div class="card">
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Ketentuan Pembuatan Group</h3>
+                    </div>
                     <div class="card-body">
-                        <form action="/xcgroup/xcpost" method="POST">
-                            {{csrf_field()}}
-                            <div class="form-group">
-                                <label>Nama</label>
-                                <input type="text" class="form-control" name="groups_name" require="required"> 
-                                <!-- <small id="emailHelp" class="form-text text-muted">Bedakan nama bila memiliki beberapa group arisan.</small> -->
-                            </div>
-                            <div class="form-group">
-                                <label>Biaya</label>
-                                <input type="text" class="form-control" name="biaya" id="bayar" require="required">
-                                <!-- <small id="emailHelp" class="form-text text-muted">Biaya yang digunakan /perminggu atau /bulan untuk setiap peserta.</small> -->
-                            </div>
-                            <div class="form-group">
-                            <label>Tanggal Mulai</label>
-                                <input class="form-control" type="datetime-local" value="2020-08-19T13:45:00" name="tanggal_mulai" require="required">
-                            </div>
-                            <div class="form-group">
-                            <label>Rentan Hari Pengocokan</label>
-                                <input class="form-control" type="number" name="rentan_waktu_pengocokan" require="required">
-                            </div>
-                            <div class="form-group">
-                                <label>Jumlah peserta</label>
-                                <input type="text" class="form-control" name="jumlah_peserta" id="diskon" require="required">
-                            </div>
-                            <div class="form-group">
-                                <label>Total</label>
-                                <input type="text" class="form-control" name="total_hadiah" id="Tbayar" readonly="readonly">
-                            </div>
-                            <!-- <button type="button" class="btn btn-primary float-right" name="btn_group" value="buat group">Buat Group</button> -->
-                               <div class="form-group">
-                               <input type="submit" class="btn btn-outline-primary px-lg-5 float-right m-3" name="btn_group" value="Buat">
-                               <button type="button" class="btn btn-outline-primary px-lg-5 float-right m-3" onclick="location.href='{{ url('home') }}'">Batal</button>
-                               </div>
-                            </div>
-                        </form>
+                      <ul class="list-unstyled small">
+                      <li>1. Penamaan group usahakan berbeda dari group sebelumnya. Sehingga tidak akan ada kekeliruan pada tampilan pengguna.</li>
+                      <li>2. Biaya merupakan biaya tagihan per peserta arisan yang akan ditagihkan setiap pengundian selesai.</li>
+                      <li>3. Tanggal mulai adalah tanggal group dibuat dan pengundian arisan akan dilakukan berdasarkan pada rentang waktu pengundian. Contoh : Tanggal pengundian 16/06/2020 dan Rentang waktu pengundian 7 hari maka 7 hari dari tanggal 16/06/2020 akan dilakukan pengundian yaitu pada tanggal 23/06/2020.</li>
+                      <li>4. Pastikan jumlah peserta terisi dengan benar.</li>
+                      <li>5. Total dana merupakan total dana yang akan diterima oleh peserta per pengundian.</li>
+                      <li class="text-right pt-3">Terima kasih kami.</li>
+                    </ul>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
-
+          </section>
+          </form>
 @endsection

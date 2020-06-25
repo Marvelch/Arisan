@@ -1,101 +1,110 @@
-@extends('layouts.app')
+@extends('layouts.sub_app')
 
-@section('content')
-<div class="container">
-
-<div class="row justify-content-center">
-
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">Peserta Arisan</div>
-                    <div class="card-body text-left">
-                        <table class="table table-borderless text-center">
-                            <thead>
-                                <tr>
-                                    <th class="text-left">Nama Peserta</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            @foreach($submember as $hasil)
-                            <tbody>
-                                <tr>
-                                    <td class="text-left">{{$hasil->nama}}</td>
-                                    <td> 
-                                        <?php
-                                            if($hasil->status_arisan == 1)
-                                            {
-                                                echo '<i class="fas fa-check"></i>';
-                                            }else{
-                                                echo '<i class="fas fa-times"></i>';
-                                            }
-                                        ?>
-                                    </td>
-                                </tr>
-                            </tbody>
+@section('nav_menu')
+  <ul class="list-unstyled">
+    <li><a href="{{route('home')}}"> <i class="icon-home"></i>Dashboard </a></li>
+    <li><a href="{{route('profile')}}"> <i class="fa fa-id-card-o"></i>Profile </a></li>
+    <li><a href="{{route('donation')}}"> <i class="fa fa-credit-card "></i>Donasi </a></li>
+    <li class="active"><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Group</a></li>
+  </ul><span class="heading">Layanan</span>
+  <ul class="list-unstyled">
+    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Kontak </a></li>
+  </ul>
+@endsection
+@section('sub_content')
+<div class="content-inner">
+          <!-- Page Header-->
+          <header class="page-header">
+            <div class="container-fluid">
+              <h2 class="no-margin-bottom">Group Preview</h2>
+            </div>
+          </header>
+          <!-- Client Section-->
+          <section class="feeds padding-top">
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Trending Articles-->
+                <div class="col-lg-6">
+                  <div class="articles card">
+                    <div class="card-header d-flex align-items-center">
+                      <h2 class="h3">Peserta Status</h2>
+                    </div>
+                    <div class="card-body no-padding">
+                    @foreach($submember as $hasil)
+                      <div class="item d-flex align-items-center">
+                        <div class="image"><img src="{{asset('img/avatar-9.jpg')}}" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="text"><a href="#">
+                            <h3 class="h5">{{$hasil->nama}}</h3></a>
+                            <small>
+                                <?php
+                                    if($hasil->status_arisan == 1)
+                                    {
+                                        echo "Terpilih";
+                                    }else{
+                                        echo "Belum Terpilih";
+                                    }
+                                ?>
+                            </small>
+                        </div>
+                      </div>
+                      @endforeach
+                    </div>
+                  </div>
+                </div>
+                <!-- Check List -->
+                <div class="col-lg-6">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center">           
+                      <h2 class="h3">Pengundian</h2>
+                    </div>
+                    @foreach($subview as $result)
+                      <table class="table table-borderless col-sm-8 mt-3 ml-3">
+                        <tbody>
+                            <tr>
+                                <td>Nama Arisan</td>
+                                <td>{{$result->groups_name}}</td>
+                            </tr>
+                            <tr>
+                                <td>Biaya</td>
+                                <td>Rp {{$result->biaya}}</td>
+                            </tr>
+                            <tr>
+                                <td>Jumlah Peserta</td>
+                                <td>{{$result->jumlah_peserta}} Orang</td>
+                            </tr>
+                            <tr>
+                                <td>Total Hadiah</td>
+                                <td>Rp {{$result->total_hadiah}}</td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Mulai</td>
+                                <td>{{ Carbon\Carbon::parse($result->tanggal_mulai)->format('d-m-Y') }}</td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Pengocokan</td>
+                                <td>{{ Carbon\Carbon::parse($result->waktu_pengocokan)->format('d-m-Y') }}</td>
+                            </tr>
+                            @foreach($hasil_pemenang as $pemenang)
+                            <tr>
+                                <td>Pemenang Terakhir</td>
+                                <td>
+                                    {{$pemenang}}
+                                </td>
+                            </tr>
                             @endforeach
-                        </table>
-                    </div>
+                            <tr>
+                                <div class="badge bg-green" style="border-radius: 0rem;"></i> <span id="countdown"></span></div>
+                            </tr>
+                        </tbody>
+                      </table>
+                      @endforeach
+                  </div>
                 </div>
+              </div>
             </div>
-        </di>
+          </section>
 
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Informasi Group</div>
-                    <div class="card-body text-left col-md-8">
-                        @foreach($subview as $result)
-                            <table class="table table-borderless">
-                                <!-- <thead>
-                                    <tr>
-                                        <th></th>
-                                    </tr>
-                                </thead> -->
-                                <tbody>
-                                    <tr>
-                                        <td>Nama Arisan</td>
-                                        <td>{{$result->groups_name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Biaya</td>
-                                        <td>Rp {{$result->biaya}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jumlah Peserta</td>
-                                        <td>{{$result->jumlah_peserta}} Orang</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total Hadiah</td>
-                                        <td>Rp {{$result->total_hadiah}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tanggal Mulai</td>
-                                        <td>{{ Carbon\Carbon::parse($result->tanggal_mulai)->format('d-m-Y') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tanggal Pengocokan</td>
-                                        <td>{{ Carbon\Carbon::parse($result->waktu_pengocokan)->format('d-m-Y') }}</td>
-                                    </tr>
-                                    @foreach($result_pem as $pemenang)
-                                    <tr>
-                                        <td>Pemenang Terakhir</td>
-                                        <td>{{$pemenang->nama}}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        @endforeach
-                    </div>
-                    <div class="card-footer text-center">
-                        </i> <span id="countdown"></span>
-                    </div>
-                </div>
-            </div>
-        </div>   
-
-    </div>
-</div>
-
-@foreach($subview as $subresult)
+          @foreach($subview as $subresult)
 
 <script>
 	CountDownTimer('{{$subresult->created_at}}', 'countdown');

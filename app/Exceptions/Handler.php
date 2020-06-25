@@ -48,8 +48,32 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    public function render($request, Throwable $exception)
+
+     /**
+      * Change Lane Base To Custome
+      * Date 24/06/2020
+      * Mengubah tampilan halaman ke 404 Custome Page
+      */
+
+    // public function render($request, Throwable $exception)
+    // {
+    //     return parent::render($request, $exception);
+    // }
+
+    /**
+     * Hasil perubahan menggunakan custome page 404 laravel
+     */
+
+    public function render($request, Throwable $e)
     {
-        return parent::render($request, $exception);
+        if($this->isHttpException($e))
+        {
+            $code = $e->getStatusCode();
+            if($code=='404')
+            {
+                return response()->view('404');
+            }
+        }
+        return parent::render($request, $e);
     }
 }

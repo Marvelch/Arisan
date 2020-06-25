@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,24 +21,28 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/donation', 'HomeController@donasi')->name('donation');
 
-Route::get('/xcgroup', 'GroupController@index')->name('xcgroup');
-Route::post('/xcgroup/xcpost', 'GroupController@store');
+Route::get('/group', 'GroupController@index')->name('group');
+Route::post('/group/post', 'GroupController@store');
 
-Route::get('xcmember','MemberController@index');
-Route::post('xcmember/xcinsert','MemberController@insert')->name('xcmember.insert');
+Route::get('members','MemberController@index');
+Route::post('members/insert','MemberController@insert')->name('members.insert');
 
-Route::get('xcarisan','ArisanController@index')->name('dashboard');
-Route::get('xcsubarisan/{id}','ArisanController@subarisan');
+Route::get('dashboard','ArisanController@index')->name('dashboard');
+Route::get('view/{id}/group_','ArisanController@subarisan');
 
-Route::get('xcprofile','ArisanController@profile')->name('profile');
-Route::get('xceditprofile','ArisanController@editprofile');
+Route::get('profile','ArisanController@profile')->name('profile');
+Route::get('profile_edit','ArisanController@editprofile')->name('profile_edit');
 Route::post('processupdate','ArisanController@updateprofile')->name('processupdate');
 
 Route::get('peserta','ArisanController@Membersdata');
+Route::get('contact','ArisanController@contact')->name('contact');
 // Route::post('processupdate','ArisanController@proses_update_profile')->name('processupdate');
 
-Route::get('xcwinner','WinnerController@index')->name('xcwinner');
+Route::get('winner','WinnerController@index')->name('winner');
 
 Route::get('dynamic-field', 'MemberController@utama');
 Route::post('dynamic-field/insert', 'MemberController@subinsert')->name('dynamic-field.insert');
+
+Route::get('page_lost','HomeController@page_error');

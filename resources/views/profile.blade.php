@@ -20,11 +20,8 @@
             </div>
           </header>
           <!-- Dashboard Counts Section-->
-          <section class="dashboard-counts no-padding-bottom">
-            <div class="container-fluid">
+          <section class="dashboard-counts">
               <div class="row">
-                <!-- Work Amount  -->
-                <!-- Client Profile -->
                 @foreach($users as $user)
                 <div class="col-lg-12">
                   <div class="client card">
@@ -34,7 +31,7 @@
                       </div>
                     </div>
                     <div class="card-body text-center">
-                      <div class="client-avatar"><img src="img/users.jpg" alt="..." class="img-fluid rounded-circle">
+                      <div class="client-avatar"><img src="img/user.png" alt="User Photo" class="img-fluid rounded-circle">
                         <div class="status bg-green"></div>
                       </div>
                       <div class="client-title">

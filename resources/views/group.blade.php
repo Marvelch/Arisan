@@ -28,15 +28,6 @@
                 <!-- Basic Form-->
                 <div class="col-lg-6">
                   <div class="card">
-                    <div class="card-close">
-                      <div class="dropdown">
-                        <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                        <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                      </div>
-                    </div>
-                    <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Data Group</h3>
-                    </div>
                     <div class="card-body">
                       <!-- <p>Perhatikan kembali pengisian data group arisan.</p> -->
                       <form>
@@ -46,7 +37,7 @@
                         </div>
                         <div class="form-group">       
                           <label class="form-control-label">Biaya</label>
-                          <input type="text" class="form-control" name="biaya" id="bayar" require="required">
+                          <input type="text" class="form-control" name="biaya" id="bayar" min="5000" require="required">
                         </div>
                         <div class="form-group">       
                           <label class="form-control-label">Tanggal Mulai</label>
@@ -58,7 +49,7 @@
                         </div>
                         <div class="form-group">       
                           <label class="form-control-label">Jumlah peserta</label>
-                          <input type="text" class="form-control" name="jumlah_peserta" id="diskon" require="required">
+                          <input type="text" class="form-control" name="jumlah_peserta" id="diskon" min="2" require="required">
                         </div><div class="form-group">       
                           <label class="form-control-label">Total Dana</label>
                           <input type="text" class="form-control" name="total_hadiah" id="Tbayar" readonly="readonly">
@@ -73,14 +64,8 @@
                 <!-- Horizontal Form-->
                 <div class="col-lg-6">
                   <div class="card">
-                    <div class="card-close">
-                      <div class="dropdown">
-                        <button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                        <div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                      </div>
-                    </div>
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Ketentuan Pembuatan Group</h3>
+                      Ketentuan Pembuatan Group
                     </div>
                     <div class="card-body">
                       <ul class="list-unstyled small">

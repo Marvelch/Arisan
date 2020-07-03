@@ -104,7 +104,7 @@ $(document).ready(function(){
         html += '<td><input type="text" name="nama[]" class="form-control" /></td>';
         html += '<td><input type="email" name="email[]" class="form-control" /><input type="hidden" name="status_arisan[]" value="0"></td>';
         @foreach($group as $result)
-        html += '<td><input type="text" name="telpon[]" class="form-control" /><input type="hidden" name="group_id[]" value="{{$result->id}}"></td>';
+        html += '<td><input type="text" name="telpon[]" class="form-control" max="12"/><input type="hidden" name="group_id[]" value="{{$result->id}}"></td>';
         @endforeach
         if(number > 1)
         {
@@ -122,19 +122,31 @@ $(document).ready(function(){
   count++;
   dynamic_field(count);
 
-  if(count > {{$result->jumlah_peserta}} -1)
+  if(count >= {{$result->jumlah_peserta}})
   {
     $('#save').attr('disabled', true);
+  }if(count <= {{$result->jumlah_peserta}})
+  {
+    $('#save').attr('disabled', true);
+  }if(count == {{$result->jumlah_peserta}}) 
+  {
+    $('#save').attr('disabled', false);
   }
-
-  
+ 
 
  });
 
  $(document).on('click', '.remove', function(){
   count--;
   $(this).closest("tr").remove();
-  if(count <= {{$result->jumlah_peserta}} - 1) {
+  if(count >= {{$result->jumlah_peserta}})
+  {
+    $('#save').attr('disabled', true);
+  }if(count <= {{$result->jumlah_peserta}})
+  {
+    $('#save').attr('disabled', true);
+  }if(count == {{$result->jumlah_peserta}}) 
+  {
     $('#save').attr('disabled', false);
   }
  });

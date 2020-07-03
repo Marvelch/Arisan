@@ -20,9 +20,12 @@
               <h2 class="no-margin-bottom">Kontak</h2>
             </div>
           </header>
-          <section class="dashboard-counts no-padding-bottom">
+          <section class="dashboard-counts">
             <div class="container-fluid">
               <div class="row bg-white has-shadow">
+              <div class="col-sm-6">
+                  <img class="card-img-top" src="img/Contact.webp" alt="Card image cap">
+                </div>
                 <div class="col-sm-6">
                 <div class="card-body">
                       <form>
@@ -44,21 +47,6 @@
                       </form>
                     </div>
                 </div>
-                <div class="col-sm-5">
-                <div class="card-body">
-                      <form>
-                      <div class="card-deck">
-                        <div class="card text-center">
-                            <img class="card-img-top" src="img/no_photo.png" alt="Card image cap">
-                            <div class="card-body">
-                            <!-- <h5 class="card-title">Email</h5> -->
-                            <p class="card-text">Cs@bookingbook.my.id</p>
-                            </div>
-                        </div>
-                      </form>
-                    </div>
-                </div>
-              </div>
             </div>
           </section>
 @endsection

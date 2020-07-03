@@ -30,45 +30,45 @@
                   </div>   
                 @endif
               <div class="row">
-                <!-- Pemenang Arisan Terakhir-->
-                <div class="col-sm-6">
+              <div class="col-lg-6">
                   <div class="card">
-                    <div class="card-header d-flex align-items-center">
-                    Semua Group
+                    <div class="card-body text-center">
+                      <img src="/front_end/images/group.png" alt="Background Images" style="width:23rem;">
+                      <!-- <p class="card-text">Buat group arisan sesuai dengan keinginan sendiri. Kumpulkan semua peserta dan buat group arisan kalian !</p> -->
+                      <a href="{{url('/group')}}" class="btn btn-primary">Buat Group Sekarang</a>
                     </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card">
                     <div class="card-body">
-                      <!-- <p>Lorem ipsum dolor sit amet consectetur.</p> -->
                       <form>
-                      @foreach($groups as $group)
                         <div class="form-group">
-                        <table class="table table-borderless text-left">
+                        <table class="table table-borderless">
+                        <thead>
+                          <tr>
+                            <th>Nama Group</th>
+                            <th>Peserta</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        @foreach($groups as $group)
                           <tbody>
                             <tr>
-                              <th><a href="{{url('view/'.$group->id.'/group_')}}"><i class="fa fa-external-link"></i><span class="ml-3">{{$group->groups_name}}</span></a></th>
-                              <td></td>
+                              <td>{{$group->groups_name}}</td>
+                              <td>{{$group->jumlah_peserta}} Orang</td>
+                              <td><a href="{{url('view/'.$group->id.'/group_')}}" style="underline:none;"><i class="fa fa-key" aria-hidden="true"></i></a></td>
                             </tr>
                           </tbody>
+                          @endforeach
                         </table>
                         </div>
-                        @endforeach
                       </form>
                       {{ $groups->links() }}
                     </div>
                   </div>
                 </div>
-                <!-- Horizontal Form-->
-                <div class="col-lg-6">
-                <div class="card">
-                  <div class="card-header">
-                    Buat Group
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title">Arisan Bookingbook.my.id</h5>
-                    <p class="card-text">Temukan cara yang lebih sederhan untuk melakukan arisan.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-                </div>
+                <!-- terakhir foreach -->
               </div>
             </div>
           </section>

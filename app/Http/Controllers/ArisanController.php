@@ -50,21 +50,38 @@ class ArisanController extends Controller
 
         $submember = Member::WHERE('group_id',$groupId)->get();
 
-        // Algoritma pengocokan
+        /**
+         * Mengambil tanggal pengundian arisan.
+         */
 
         $tanggal = Group::WHERE('id',$groupId)->pluck('waktu_pengocokan');
         $x = date($tanggal);
+
+        /**
+         * Tanggal sekarang
+         */
         $today = date('["Y-m-d"]');
 
         if($today == $x)
         {
+            /**
+             * Mengambil satu peserta dari table member dan melakukan random
+             */
             $peserta = Member::WHERE('group_id',$groupId AND 'status_arisan',0)->inRandomOrder()->limit(1)->get();
             foreach($peserta as $hsl)
             {
+                /**Update table members untuk status arisan yang terpilih berubah menjadi satu. */
                 $randomresilt = $hsl->nama;
                 $members_id = $hsl->id;
                 $satu = 1;
-                Member::WHERE('id',$members_id)->update(['status_arisan' => $satu]);    
+                Member::WHERE('id',$members_id)->update(['status_arisan' => $satu]);
+
+                /**
+                 * update data members pemenang ke tabel winner
+                 */
+                $id = $members_id;
+                $data_members = array('members_id'=>$members_id);
+                Winner::INSERT($data_members);
 
                 // Update Group Waktu Pengundian
                 $waktu_pengocokan = Group::WHERE('id',$groupId)->get();

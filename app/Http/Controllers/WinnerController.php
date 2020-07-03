@@ -22,7 +22,9 @@ class WinnerController extends Controller
         $status_selesai = 1;
         
         $groups = Group::WHERE('users_id',$userID)
-                        ->WHERE('status','=',1)->paginate(7);
+                        ->WHERE('status','=',1)
+                        ->orderBy('created_at', 'desc')
+                        ->paginate(4);
 
         /**
          * Menampilkan Nilai Group_id Terbesar
@@ -55,14 +57,12 @@ class WinnerController extends Controller
             if([$group_ids = $countsy] == [$group_ids = $y])
             {
                 Group::WHERE('id',$group_ids)->update(['status' => 0]);
-                Session::flash('message', 'Data Group Terbaru !'); 
+                
             }else{
                 Session::flash('alert-class', 'alert-danger'); 
             }
         }
-              
-            //   $desc_status = Member::WHERE('group_id',$group_ids)->WHERE('status_arisan','=',1)->orderBy('updated_at', 'desc')->get();
-            
+   
         return view('winner',['groups' => $groups]);
     }
 

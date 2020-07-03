@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>BOOKINGBOOK</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
@@ -43,8 +43,8 @@
               <!-- Navbar Header-->
               <div class="navbar-header">
                 <!-- Navbar Brand --><a href="index.html" class="navbar-brand d-none d-sm-inline-block">
-                  <div class="brand-text d-none d-lg-inline-block"><span>{{ config('app.name', 'Laravel') }} </span></div>
-                  <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div></a>
+                  <div class="brand-text d-none d-lg-inline-block"><span>Booking Book</span></div>
+                  <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BB</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
               </div>
               <!-- Navbar Menu -->
@@ -69,10 +69,10 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="{{asset('img/avatar.jpg')}}" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="{{asset('img/user.png')}}" alt="User Photo" class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4">{{ Auth::user()->name }}</h1>
-              <p>Web Designer</p>
+              <p>{{ Auth::user()->status }}</p>
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -84,11 +84,11 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>bookingbook.my.id &copy; 2020</p>
+                  <p class="text">&copy; Copyright Bookingbook 2020. All Rights Reserved
                 </div>
-                <div class="col-sm-6 text-right">
+                <!-- <div class="col-sm-6 text-right">
                   <p>Design by <a href="http://bookingbook.my.id/" class="external">bookingbook</a></p>
-                </div>
+                </div> -->
               </div>
             </div>
           </footer>

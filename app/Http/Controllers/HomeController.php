@@ -16,7 +16,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','verified']);
+        // $this->middleware('auth');
     }
 
     /**
@@ -49,6 +50,7 @@ class HomeController extends Controller
          * Menghitung Jumlah Peserta Selesai
          */
         $counts_end = Group::join('members','group.id','=','members.group_id')
+                        ->WHERE('users_id',$userId)
                         ->WHERE('status_arisan','=',1)
                         ->count();
         

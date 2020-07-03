@@ -1,26 +1,15 @@
 @extends('layouts.sub_app')
 
 @section('nav_menu')
-<ul class="list-unstyled">
-            <li><a href="{{route('home')}}"> <i class="icon-home"></i>Dashboard </a></li>
-            <li><a href="tables.html"> <i class="fa fa-plus-square-o"></i>Daftar Group</a></li>
-            <li class="active"><a href="{{route('profile')}}"> <i class="fa fa-user"></i>Profile </a></li>
-            <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
-            <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
-              <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                <li><a href="#">Page</a></li>
-                <li><a href="#">Page</a></li>
-                <li><a href="#">Page</a></li>
-              </ul>
-            </li>
-            <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li>
-          </ul><span class="heading">Extras</span>
-          <ul class="list-unstyled">
-            <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
-            <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>
-            <li> <a href="#"> <i class="icon-mail"></i>Demo </a></li>
-            <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
-          </ul>
+  <ul class="list-unstyled">
+    <li><a href="{{route('home')}}"> <i class="icon-home"></i>Dashboard </a></li>
+    <li><a href="{{route('profile')}}"> <i class="fa fa-id-card-o"></i>Profile </a></li>
+    <li><a href="{{route('donation')}}"> <i class="fa fa-credit-card "></i>Donasi </a></li>
+    <li class="active"><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Buat Group</a></li>
+  </ul><span class="heading">Layanan</span>
+  <ul class="list-unstyled">
+    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Kontak </a></li>
+  </ul>
 @endsection
 @section('sub_content')
 <div class="content-inner">

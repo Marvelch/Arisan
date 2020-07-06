@@ -8,7 +8,7 @@
     <li class="active"><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Buat Group</a></li>
   </ul><span class="heading">Layanan</span>
   <ul class="list-unstyled">
-    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Kontak </a></li>
+    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Bantuan </a></li>
   </ul>
 @endsection
 @section('sub_content')

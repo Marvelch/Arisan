@@ -43,6 +43,7 @@ class ArisanController extends Controller
                             ->WHERE('users_id',$userID)
                             ->count();
 
+        /** Mengakses halamanan tidak sesuai dengan id maka direct access page */
         if($db_access == null)
         {
             return redirect('page_lost');
@@ -54,50 +55,54 @@ class ArisanController extends Controller
          * Mengambil tanggal pengundian arisan.
          */
 
-        $tanggal = Group::WHERE('id',$groupId)->pluck('waktu_pengocokan');
-        $x = date($tanggal);
+        // $tanggal = Group::WHERE('id',$groupId)->pluck('waktu_pengocokan');
+        // $x = date($tanggal);
 
-        /**
-         * Tanggal sekarang
-         */
-        $today = date('["Y-m-d"]');
+        // /**
+        //  * Tanggal sekarang
+        //  */
+        // $today = date('["Y-m-d"]');
 
-        if($today == $x)
-        {
-            /**
-             * Mengambil satu peserta dari table member dan melakukan random
-             */
-            $peserta = Member::WHERE('group_id',$groupId AND 'status_arisan',0)->inRandomOrder()->limit(1)->get();
-            foreach($peserta as $hsl)
-            {
-                /**Update table members untuk status arisan yang terpilih berubah menjadi satu. */
-                $randomresilt = $hsl->nama;
-                $members_id = $hsl->id;
-                $satu = 1;
-                Member::WHERE('id',$members_id)->update(['status_arisan' => $satu]);
+        // if($today == $x)
+        // {
+        //     /**
+        //      * Mengambil satu peserta dari table member dan melakukan random
+        //      */
+        //     $peserta = Member::WHERE('group_id',$groupId)
+        //                     ->WHERE('status_arisan',0)->inRandomOrder()->limit(1)->get();
+                            
+        //     foreach($peserta as $hsl)
+        //     {
+        //         /**Update table members untuk status arisan yang terpilih berubah menjadi satu. */
+        //         $randomresilt = $hsl->nama;
+        //         $members_id = $hsl->id;
+        //         echo $members_id;
+        //         $satu = 1;
+        //         Member::WHERE('id',$members_id)->update(['status_arisan' => $satu]);
 
-                /**
-                 * update data members pemenang ke tabel winner
-                 */
-                $id = $members_id;
-                $data_members = array('members_id'=>$members_id);
-                Winner::INSERT($data_members);
+        //         /**
+        //          * update data members pemenang ke tabel winner
+        //          */
+        //         $data_members = array('members_id'=>$members_id);
+        //         Winner::INSERT($data_members);
 
-                // Update Group Waktu Pengundian
-                $waktu_pengocokan = Group::WHERE('id',$groupId)->get();
-                foreach($waktu_pengocokan as $wtks)
-                {
-                    $waktu = $wtks->waktu_pengocokan;
-                    $rentawaktu = $wtks->rentan_waktu_pengocokan;
-                    $date1 = str_replace('-', '/', $waktu);
-                    $tomorrow = date('Y-m-d',strtotime($date1 . "+$rentawaktu days"));
+        //         // Update Group Waktu Pengundian
+        //         $waktu_pengocokan = Group::WHERE('id',$groupId)->get();
+        //         foreach($waktu_pengocokan as $wtks)
+        //         {
+        //             $waktu = $wtks->waktu_pengocokan;
+        //             $rentawaktu = $wtks->rentan_waktu_pengocokan;
+        //             $date1 = str_replace('-', '/', $waktu);
+        //             $tomorrow = date('Y-m-d',strtotime($date1 . "+$rentawaktu days"));
 
-                    Group::WHERE('id',$groupId)->update(['waktu_pengocokan' => $tomorrow]);
-                }
-            }
-        }
+        //             Group::WHERE('id',$groupId)->update(['waktu_pengocokan' => $tomorrow]);
+        //         }
+        //     }
+        // }
        
-        $pemenangs = Member::WHERE([['group_id','=',$groupId],['status_arisan','1']])->orderBy('updated_at', 'desc')->limit(1)->get();
+        $pemenangs = Member::WHERE('group_id',$groupId)
+                            ->WHERE('status_arisan',1
+                            )->orderBy('updated_at', 'desc')->limit(1)->get();
 
         if(!$pemenangs->isEmpty())
         {
@@ -109,7 +114,7 @@ class ArisanController extends Controller
             $hasil_pemenang[] = "Tidak Tersedia";
         }
 
-        return view('subarisan',['subview' => $subview])->with(['submember' => $submember])->with(['x' => $tanggal])->with(['hasil_pemenang' => $hasil_pemenang]);
+        return view('subarisan',['subview' => $subview])->with(['submember' => $submember])->with(['hasil_pemenang' => $hasil_pemenang]);
     }
 
     public function profile(Request $request)

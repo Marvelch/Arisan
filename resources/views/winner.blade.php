@@ -8,7 +8,7 @@
     <li class="active"><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Group</a></li>
   </ul><span class="heading">Layanan</span>
   <ul class="list-unstyled">
-    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Kontak </a></li>
+    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Bantuan </a></li>
   </ul>
 @endsection
 @section('sub_content')
@@ -34,8 +34,15 @@
                   <div class="card">
                     <div class="card-body text-center">
                       <img src="/front_end/images/group.png" alt="Background Images" style="width:23rem;">
-                      <!-- <p class="card-text">Buat group arisan sesuai dengan keinginan sendiri. Kumpulkan semua peserta dan buat group arisan kalian !</p> -->
-                      <a href="{{url('/group')}}" class="btn btn-primary">Buat Group Sekarang</a>
+                      <div class="card">
+                        <div class="card-body">
+                          <blockquote class="blockquote mb-0">
+                            <p>Lebih sederhana dengan membuat group dan pengundian secara otomatis.</p>
+                            <footer class="blockquote-footer" style="font-size:13px; padding-bottom:1rem;"> Baca <cite title="Source Title"> Syarat & Ketentuan</cite></footer>
+                          </blockquote>
+                          <a href="{{url('/group')}}" class="btn btn-primary">Buat Group Sekarang</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

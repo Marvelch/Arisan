@@ -8,7 +8,7 @@
     <li class="active"><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Group</a></li>
   </ul><span class="heading">Layanan</span>
   <ul class="list-unstyled">
-    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Kontak </a></li>
+    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Bantuan </a></li>
   </ul>
 @endsection
 @section('sub_content')
@@ -122,7 +122,7 @@
                         if (distance < 0)
                         {
 						    clearInterval(timer);
-							document.getElementById(id).innerHTML = '<b>TUGAS SUDAH BERAKHIR</b> ';
+							document.getElementById(id).innerHTML = '<b>TELAH SELESAI</b> ';
 							return;
                         }
                         

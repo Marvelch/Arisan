@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="mt-30">
-                    <img src="{{asset('/front_end/images/register.png')}}" alt="Logo" class="login-logo">
+                    <img src="{{asset('/front_end/images/register.png')}}" alt="Logo">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-3">

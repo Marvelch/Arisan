@@ -40,8 +40,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
               <!-- Modal Go-pay-->
             <div class="modal fade" id="GopayModal" tabindex="-1" role="dialog" aria-labelledby="GopayModal" aria-hidden="true">
               <div class="modal-dialog" role="document">
@@ -54,11 +52,7 @@
                   </div>
                   <div class="modal-body text-center">
                     <ul>
-                      <p>No Go-pay bookingbook.my.id</p>
-                      <br>
-                      <h3>082217797018 / 083878337954</h3>
-                      <br>
-                      <p class="text-rigth">Terima Kasih</p>
+                      <p>Belum Tersedia</p>
                     </ul>
                   </div>
                   <div class="modal-footer">
@@ -79,11 +73,7 @@
                   </div>
                   <div class="modal-body text-center">
                     <ul>
-                      <p>Email Paypal bookingbook.my.id</p>
-                      <br>
-                      <h3>mr.marvel.christevan@gmail.com</h3>
-                      <br>
-                      <p class="text-rigth">Terima Kasih</p>
+                      <p>Belum Tersedia</p>
                     </ul>
                   </div>
                   <div class="modal-footer">
@@ -92,7 +82,8 @@
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
 <script>
     function payments()

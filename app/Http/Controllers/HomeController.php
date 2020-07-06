@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Member;
 use App\Group;
+use App\Contact;
 use Auth;
 
 class HomeController extends Controller
@@ -56,7 +57,11 @@ class HomeController extends Controller
         
         $hasil_end[] = $counts_end;
 
-        return view('home',['counts' => $hasil])->with(['count_group' => $hasil_group])->with(['ends' => $hasil_end]);
+        $counts_report = Contact::where('user_id',$userId)->count();
+
+        $hasil_report[] = $counts_report;
+
+        return view('home',['counts' => $hasil])->with(['count_group' => $hasil_group])->with(['ends' => $hasil_end])->with(['reports' => $hasil_report]);
     }
 
     public function donasi()

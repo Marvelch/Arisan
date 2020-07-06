@@ -3,14 +3,12 @@
   <head>
   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>BOOKINGBOOK</title>
-    <meta name="description" content="">
+
+    <title>Boo-Boo</title>
+    <meta name="description" content="Temukan solusi terbaik untuk group arisan online. Buat Group arisan dengan cara yang sederhana dan mudah.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
     <!-- Font Awesome CSS-->
@@ -34,7 +32,7 @@
           <!-- Search Box-->
           <div class="search-box">
             <button class="dismiss"><i class="icon-close"></i></button>
-            <form id="searchForm" action="logout" method="post" role="search">
+            <form id="searchForm">
               <input type="search" placeholder="Maintenance" class="form-control" disabled>
             </form>
           </div>

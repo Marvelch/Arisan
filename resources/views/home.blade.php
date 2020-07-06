@@ -8,7 +8,7 @@
     <li><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Group</a></li>
   </ul><span class="heading">Layanan</span>
   <ul class="list-unstyled">
-    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Kontak </a></li>
+    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Bantuan </a></li>
   </ul>
 @endsection
 @section('sub_content')
@@ -65,6 +65,7 @@
                   </div>
                 </div>
                 @endforeach
+                @foreach($reports as $report)
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
@@ -74,10 +75,11 @@
                         <div role="progressbar" style="width: 50%; height: 4px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-orange"></div>
                       </div>
                     </div>
-                    <div class="number"><strong>1</strong></div>
+                    <div class="number"><strong>{{$report}}</strong></div>
                   </div>
                 </div>
               </div>
             </div>
+            @endforeach
           </section>
 @endsection

@@ -46,11 +46,9 @@ class GroupController extends Controller
 
         $userID = Auth::user()->id;
         $status = 1;
-        // $waktu_pengocokan = 2020-04-05;
         $rentan_waktu_pengocokan = $request->get('rentan_waktu_pengocokan');
         $tanggal_mulai = $request->get('tanggal_mulai');
-        $hasil_tanggal_mulai = date('Y-m-d', strtotime('+6 days',strtotime($tanggal_mulai)));
-        // printf($hasil_tanggal_mulai);
+        $hasil_tanggal_mulai = date('Y-m-d', strtotime('+'.$rentan_waktu_pengocokan.'days',strtotime($tanggal_mulai)));
 
         $x = new group ([
             'groups_name' => $request->get('groups_name'),

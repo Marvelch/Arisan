@@ -20,7 +20,7 @@
             </div>
           </header>
           <!-- Form input  -->
-          <form action="/group/post" method="POST">
+          <form action="/group/post" method="POST" onsubmit="return validation_group()" name="form_group">
           {{csrf_field()}}
           <section class="forms"> 
             <div class="container-fluid">
@@ -37,19 +37,19 @@
                         </div>
                         <div class="form-group">       
                           <label class="form-control-label">Biaya</label>
-                          <input type="text" class="form-control" name="biaya" id="bayar" min="5000" require="required">
+                          <input type="text" class="form-control" name="biaya" id="bayar" require="required">
                         </div>
                         <div class="form-group">       
                           <label class="form-control-label">Tanggal Mulai</label>
-                          <input type="date" class="form-control" value="<?php echo date('Y-m-d') ?>" name="tanggal_mulai" require="required">
+                          <input type="date" class="form-control" value="<?php echo date('Y-m-d') ?>" min="<?php echo date('Y-m-d') ?>" name="tanggal_mulai" require="required">
                         </div>
                         <div class="form-group">       
-                          <label class="form-control-label">Rentan Hari Pengocokan</label>
+                          <label class="form-control-label">Rentan Waktu Pengundian</label>
                           <input type="text" class="form-control" type="number" name="rentan_waktu_pengocokan" require="required">
                         </div>
                         <div class="form-group">       
                           <label class="form-control-label">Jumlah peserta</label>
-                          <input type="text" class="form-control" name="jumlah_peserta" id="diskon" min="2" require="required">
+                          <input type="text" class="form-control" name="jumlah_peserta" id="diskon" require="required">
                         </div><div class="form-group">       
                           <label class="form-control-label">Total Dana</label>
                           <input type="text" class="form-control" name="total_hadiah" id="Tbayar" readonly="readonly">
@@ -82,5 +82,33 @@
               </div>
             </div>
           </section>
-          </form>
+        </form>
+        <script>
+          /**
+           * Javascript validation form_group
+           */
+
+          function validation_group()
+          {
+            var z = document.forms["form_group"]["groups_name"].value;
+            var x = document.forms["form_group"]["biaya"].value;
+            var c = document.forms["form_group"]["jumlah_peserta"].value;
+            var v = document.forms["form_group"]["rentan_waktu_pengocokan"].value;
+
+            if(z == "")
+              {
+                toastr.error('Kolom Nama Tidak Boleh Kosong !');
+                return false;
+              }if(x == ""){
+                toastr.error('Kolom Biaya Tidak Boleh Kosong !');
+                return false;
+              }if(c == ""){
+                toastr.error('Kolom Jumlah Peserta Tidak Boleh Kosong !');
+                return false;
+              }if(v == ""){
+                toastr.error('Kolom Rentan Waktu Tidak Boleh Kosong !');
+                return false;
+              }
+          }
+        </script>
 @endsection

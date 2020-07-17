@@ -18,11 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+    
+Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => 'prevent-back-history'],function(){
-    Auth::routes();
-    
-    Auth::routes(['verify' => true]);
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/donation', 'HomeController@donasi')->name('donation')->middleware('auth');

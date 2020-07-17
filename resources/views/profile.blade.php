@@ -19,15 +19,14 @@
               <h2 class="no-margin-bottom">Profile</h2>
             </div>
           </header>
-          <!-- Dashboard Counts Section-->
-          <section class="dashboard-counts">
+          <section class="dashboard-counts" style="padding:30px 0">
               <div class="row">
                 @foreach($users as $user)
                 <div class="col-lg-12">
                   <div class="client card">
                     <div class="card-close">
                       <div class="dropdown">
-                        <button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle" onclick="window.location='{{url("profile_edit")}}'"><i class="fa fa-pencil-square-o"></i></button>
+                        <button type="button" class="dropdown-toggle" onclick="window.location='{{url("profile_edit")}}'" title="Edit Profile"><i class="fa fa-pencil-square-o fa-lg default-color"></i></button>
                       </div>
                     </div>
                     <div class="card-body text-center">

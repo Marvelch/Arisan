@@ -10,10 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!--====== Title ======-->
-    <title>BOOKINGBOOK</title>
+    <title>BooBoo</title>
     
     <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="{{asset('/front_end/images/favicon.png')}}" type="image/png">
+    <link rel="shortcut icon" href="{{asset('/front_end/images/bluelogo.png')}}" type="image/png">
 
     <!--====== Bootstrap css ======-->
     <link rel="stylesheet" href="{{asset('/front_end/css/bootstrap.min.css')}}">
@@ -131,13 +131,9 @@
             </div> <!-- container -->
             <div class="header-shape">
                 <img src="{{asset('front_end/images/header-shape.svg')}}" alt="shape">
-            </div> <!-- header-shape -->
-        </div> <!-- header content area -->
+            </div> 
+        </div>
     </header>
-
-    <!--====== HEADER ONE PART ENDS ======-->
-    
-    <!--====== FEATRES PART START ======-->
 
     <section id="features" class="features-area pt-60 pb-100">
         <div class="container">
@@ -152,7 +148,7 @@
                             <h4 class="features-title"><a href="#">Arisan Bergroup</a></h4>
                             <p class="text">Kamu dapat membuat group arisan bersama dengan teman - teman.</p>
                             <div class="features-btn rounded-buttons">
-                                <a class="main-btn rounded-one" href="#">Belum Tersedia</a>
+                                <a class="main-btn rounded-one" href="/login">Tersedia</a>
                             </div>
                         </div>
                     </div> <!-- single features -->
@@ -167,7 +163,7 @@
                             <h4 class="features-title"><a href="#">Arisan Individual</a></h4>
                             <p class="text">Temukan layanan arisan individual dengan solusi terbaik dengan cara terbaik.</p>
                             <div class="features-btn rounded-buttons">
-                                <a class="main-btn rounded-one" href="#">Pelajari</a>
+                                <a class="main-btn rounded-one" href="/login">Belum Tersedia</a>
                             </div>
                         </div>
                     </div> <!-- single features -->
@@ -180,9 +176,9 @@
                         </div>
                         <div class="features-content">
                             <h4 class="features-title"><a href="#">Tabung Terus</a></h4>
-                            <p class="text">Punya barang impian ? Yuk mulai dari sekarang untuk menabung.</p>
+                            <p class="text">Punya barang impian ? Ayo mulai menabung dari sekarang.</p>
                             <div class="features-btn rounded-buttons">
-                                <a class="main-btn rounded-one" href="#">Belum Tersedia</a>
+                                <a class="main-btn rounded-one" href="/login">Belum Tersedia</a>
                             </div>
                         </div>
                     </div> <!-- single features -->
@@ -190,10 +186,6 @@
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-
-    <!--====== FEATRES PART ENDS ======-->
-    
-    <!--====== ABOUT THREE PART START ======-->
 
     <section id="about" class="about-area pt-70 pb-100">
         <div class="container">
@@ -207,7 +199,7 @@
                             <h2 class="feature-title">Bookingbook Indonesia</h2>
                             <p class="text">Bookingbook adalah penyedia layanan arisan online baik group atau individu.</p>
                         </div>
-                    </div> <!-- about feature three -->
+                    </div> 
                 </div>
                 <div class="col-lg-6">
                     <div class="about-feature-items d-sm-flex mt-30">
@@ -224,37 +216,33 @@
                             <img src="{{asset('front_end/images/4.png')}}" alt="Icon">
                         </div>
                         <div class="feature-items-content media-body">
-                            <h5 class="items-title">Alur Buatan</h5>
-                            <p class="text">Mempermudah dan mempersederhana alur pembuatan group arisan. Pengaturan jadwal pengundian, penginputan peserta hingga layanan fitur lainnya tersedia.</p>
+                            <h5 class="items-title">Sederhana</h5>
+                            <p class="text">Mempermudah dan mempersederhana alur pembuatan group arisan. Pengaturan jadwal pengundian, penginputan data peserta dan berbagai layanan menarik lainnya.</p>
                         </div>
-                    </div> <!-- about feature items -->
+                    </div> 
                     <div class="about-feature-items d-sm-flex mt-30">
                         <div class="feature-items-icon">
                             <img src="{{asset('front_end/images/5.png')}}" alt="Icon">
                         </div>
                         <div class="feature-items-content media-body">
                             <h5 class="items-title">Layanan</h5>
-                            <p class="text">Bookingbook mempermudah pengguna dengan tampilan responsive untuk pengkasesan pada web atau mobile.</p>
+                            <p class="text">Kualitas layanan kami mempermudah pengguna dengan tampilan responsive untuk pengaksesan dari berbagai platform.</p>
                         </div>
-                    </div> <!-- about feature items -->
+                    </div> 
                     <div class="about-feature-items d-sm-flex mt-30">
                         <div class="feature-items-icon">
                             <img src="{{asset('front_end/images/6.png')}}" alt="Icon">
                         </div>
                         <div class="feature-items-content media-body">
                             <h5 class="items-title">Penjadwalan</h5>
-                            <p class="text">Buat alur pengundian sesuai dengan jadwal yang telah ditentukan. Pelanggan tidak perlu lagi khawatir karena semua telah dibuat automatic.</p>
+                            <p class="text">Buat alur pengundian sesuai dengan jadwal yang telah ditentukan. Pelanggan tidak perlu lagi khawatir karena semua telah dibuat otomatis.</p>
                         </div>
-                    </div> <!-- about feature items -->
+                    </div>
                 </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+            </div>
+        </div> 
     </section>
 
-    <!--====== ABOUT THREE PART ENDS ======-->
-    
-    <!--====== PRICING START ======-->
-    
     <section id="pricing" class="pricing-area pt-95 pb-100">
         <div class="container">
             <div class="row justify-content-center">
@@ -262,9 +250,9 @@
                     <div class="section-title text-center pb-20">
                         <h4 class="title">Harga Paket</h4>
                         <p class="text">Temukan kemudahan layanan dengan meningkatkan layanan ke layanan premium untuk kemudahan terbaik.</p>
-                    </div> <!-- section title -->
+                    </div> 
                 </div>
-            </div> <!-- row -->
+            </div>
             
             <div class="row justify-content-center">                
                 <div class="col-lg-4 col-md-7 col-sm-9">
@@ -280,7 +268,7 @@
                             </ul>
                         </div>
                         <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-one" href="#" disabled>Belum Tersedia</a>
+                            <a class="main-btn rounded-one" href="/" disabled>Belum Tersedia</a>
                         </div>
                         <div class="bottom-shape">
                             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 112.35"><defs><style>.color-2{fill:#0067f4;isolation:isolate;}.cls-1{opacity:0.1;}.cls-2{opacity:0.2;}.cls-3{opacity:0.4;}.cls-4{opacity:0.6;}</style></defs><title>bottom-part1</title><g><g data-name="Group 747"><path data-name="Path 294" class="cls-1 color-2" d="M0,24.21c120-55.74,214.32,2.57,267,0S349.18,7.4,349.18,7.4V82.35H0Z" transform="translate(0 0)"/><path data-name="Path 297" class="cls-2 color-2" d="M350,34.21c-120-55.74-214.32,2.57-267,0S.82,17.4.82,17.4V92.35H350Z" transform="translate(0 0)"/><path data-name="Path 296" class="cls-3 color-2" d="M0,44.21c120-55.74,214.32,2.57,267,0S349.18,27.4,349.18,27.4v74.95H0Z" transform="translate(0 0)"/><path data-name="Path 295" class="cls-4 color-2" d="M349.17,54.21c-120-55.74-214.32,2.57-267,0S0,37.4,0,37.4v74.95H349.17Z" transform="translate(0 0)"/></g></g></svg>
@@ -301,7 +289,7 @@
                             </ul>
                         </div>
                         <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-one" href="#" disabled>Belum Tersedia</a>
+                            <a class="main-btn rounded-one" href="/" disabled>Belum Tersedia</a>
                         </div>
                         <div class="bottom-shape">
                             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 112.35"><defs><style>.color-2{fill:#0067f4;isolation:isolate;}.cls-1{opacity:0.1;}.cls-2{opacity:0.2;}.cls-3{opacity:0.4;}.cls-4{opacity:0.6;}</style></defs><title>bottom-part1</title><g><g data-name="Group 747"><path data-name="Path 294" class="cls-1 color-2" d="M0,24.21c120-55.74,214.32,2.57,267,0S349.18,7.4,349.18,7.4V82.35H0Z" transform="translate(0 0)"/><path data-name="Path 297" class="cls-2 color-2" d="M350,34.21c-120-55.74-214.32,2.57-267,0S.82,17.4.82,17.4V92.35H350Z" transform="translate(0 0)"/><path data-name="Path 296" class="cls-3 color-2" d="M0,44.21c120-55.74,214.32,2.57,267,0S349.18,27.4,349.18,27.4v74.95H0Z" transform="translate(0 0)"/><path data-name="Path 295" class="cls-4 color-2" d="M349.17,54.21c-120-55.74-214.32,2.57-267,0S0,37.4,0,37.4v74.95H349.17Z" transform="translate(0 0)"/></g></g></svg>
@@ -322,20 +310,16 @@
                             </ul>
                         </div>
                         <div class="pricing-btn rounded-buttons text-center">
-                            <a class="main-btn rounded-one" href="#">Belum Tersedia</a>
+                            <a class="main-btn rounded-one" href="/">Belum Tersedia</a>
                         </div>
                         <div class="bottom-shape">
                             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 112.35"><defs><style>.color-2{fill:#0067f4;isolation:isolate;}.cls-1{opacity:0.1;}.cls-2{opacity:0.2;}.cls-3{opacity:0.4;}.cls-4{opacity:0.6;}</style></defs><title>bottom-part1</title><g><g data-name="Group 747"><path data-name="Path 294" class="cls-1 color-2" d="M0,24.21c120-55.74,214.32,2.57,267,0S349.18,7.4,349.18,7.4V82.35H0Z" transform="translate(0 0)"/><path data-name="Path 297" class="cls-2 color-2" d="M350,34.21c-120-55.74-214.32,2.57-267,0S.82,17.4.82,17.4V92.35H350Z" transform="translate(0 0)"/><path data-name="Path 296" class="cls-3 color-2" d="M0,44.21c120-55.74,214.32,2.57,267,0S349.18,27.4,349.18,27.4v74.95H0Z" transform="translate(0 0)"/><path data-name="Path 295" class="cls-4 color-2" d="M349.17,54.21c-120-55.74-214.32,2.57-267,0S0,37.4,0,37.4v74.95H349.17Z" transform="translate(0 0)"/></g></g></svg>
                         </div>
-                    </div> <!-- single pricing -->
+                    </div>
                 </div>
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
-
-    <!--====== PRICING ENDS ======-->
-    
-    <!--====== CONTACT PART START ======-->
 
     <section id="contact" class="contact-area pt-95 pb-100">
         <div class="container">
@@ -393,10 +377,6 @@
         </div> <!-- container -->
     </section>
 
-    <!--====== CONTACT PART ENDS ======-->
-    
-    <!--====== FOOTER PART START ======-->
-
     <footer id="footer" class="footer-area">
         <div class="footer-widget pt-70 pb-100">
             <div class="container">
@@ -419,9 +399,9 @@
                         <div class="footer-link">
                             <h6 class="footer-title">Layanan</h6>
                             <ul>
-                                <li><a href="#">Tentang Kami</a></li>
-                                <li><a href="#">Harga</a></li>
-                                <li><a href="#">Kontak</a></li>
+                                <li><a href="/">Tentang Kami</a></li>
+                                <li><a href="/">Harga</a></li>
+                                <li><a href="/">Kontak</a></li>
                             </ul>
                         </div> <!-- footer link -->
                     </div>
@@ -429,9 +409,9 @@
                         <div class="footer-link">
                             <h6 class="footer-title">Help & Suuport</h6>
                             <ul>
-                                <li><a href="#">Support Center</a></li>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="/">Support Center</a></li>
+                                <li><a href="/">FAQ</a></li>
+                                <li><a href="/">Terms & Conditions</a></li>
                             </ul>
                         </div> <!-- footer link -->
                     </div>
@@ -452,16 +432,7 @@
         </div> <!-- footer copyright -->
     </footer>
 
-    <!--====== FOOTER PART ENDS ======-->
-    
-    <!--====== BACK TOP TOP PART START ======-->
-
     <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
-
-    <!--====== BACK TOP TOP PART ENDS ======-->   
-    
-    
-    
 
     <!--====== jquery js ======-->
     <script src="{{asset('/front_end/js/vendor/modernizr-3.6.0.min.js')}}"></script>
@@ -484,7 +455,7 @@
     <script src="{{asset('/front_end/js/slick.min.js')}}"></script>
     
     
-    <!--====== Main js ======-->>
+    <!--====== Main js ======-->
     <script src="{{asset('/front_end/js/main.js')}}"></script>
 
 </body>

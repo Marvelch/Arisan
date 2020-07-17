@@ -19,8 +19,38 @@
               <h2 class="no-margin-bottom">Dashboard</h2>
             </div>
           </header>
-          <!-- Dashboard Counts Section-->
-          <section class="dashboard-counts no-padding-bottom" style="padding:30px;">
+
+          <section class="dashboard-counts" style="padding:30px;">
+          <div class="container-fluid">
+              <div class="row bg-white has-shadow" >
+              <div class="card-deck">
+                <div class="card">
+                  <img class="card-img-top img-fluid w-100" src="/front_end/images/learn.png" alt="Notification">
+                  <div class="card-body">
+                    <h5 class="card-title">Tutorial Buat Group</h5>
+                    <p class="card-text">Belum mengerti dengan cara penggunaan website bookingbook ? Yuk belajar !</p>
+                    <p class="card-text"><small class="text-muted"><i class="fa fa-check-square-o"></i> Lihat Blog</small></p>
+                  </div>
+                </div>
+                <div class="card">
+                  <img class="card-img-top img-fluid w-100" src="/front_end/images/alert.png" alt="Notification">
+                  <div class="card-body">
+                    <h5 class="card-title">Laporkan Penipuan</h5>
+                    <p class="card-text">Perna mengalami penipuan ? Ayo segera laporkan tindak penipuan kepada kami.</p>
+                    <p class="card-text"><small class="text-muted"><i class="fa fa-check-square-o"></i> Lihat Blog</small></p>
+                  </div>
+                </div>
+                <div class="card">
+                  <img class="card-img-top img-fluid w-100" src="/front_end/images/help.png" alt="Notification">
+                  <div class="card-body">
+                    <h5 class="card-title">Kuesioner</h5>
+                    <p class="card-text">Bantu kami meningkatkan layanan dengan mengisi kuesioner layanan.</p>
+                    <p class="card-text"><small class="text-muted"><i class="fa fa-file-word-o" aria-hidden="true"></i> Kuesioner</small></p>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
             <div class="container-fluid">
               <div class="row bg-white has-shadow" style="padding:0px;">
                 <!-- Item -->
@@ -82,4 +112,5 @@
             </div>
             @endforeach
           </section>
+          
 @endsection

@@ -5,7 +5,7 @@
     <li><a href="{{route('home')}}"> <i class="icon-home"></i>Dashboard </a></li>
     <li><a href="{{route('profile')}}"> <i class="fa fa-id-card-o"></i>Profile </a></li>
     <li><a href="{{route('donation')}}"> <i class="fa fa-credit-card "></i>Donasi </a></li>
-    <li class="active"><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Buat Group</a></li>
+    <li class="active"><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Group</a></li>
   </ul><span class="heading">Layanan</span>
   <ul class="list-unstyled">
     <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Bantuan </a></li>
@@ -30,20 +30,20 @@
                 <div class="col-lg-6">                           
                   <div class="card">
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Data Pelengkap</h3>
+                      <h3 class="h4">Data Pengguna</h3>
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                          <input type="text" placeholder="Nama Lengkap" class="form-control" name="name" value="{{$user->name}}">
+                          <input type="text" placeholder="Nama Lengkap" class="form-control" name="name" maxlength="30" value="{{$user->name}}">
                         </div>
                         <div class="form-group">
                           <input type="text" placeholder="Email" class="form-control" name="email" value="{{$user->email}}" disabled>
                         </div>
                         <div class="form-group">
-                          <input type="text" placeholder="Telpon" class="form-control" name="phone" value="{{$user->phone}}">
+                          <input type="text" placeholder="Telpon" class="form-control" name="phone" maxlength="12" minlength="11" value="{{$user->phone}}">
                         </div>
                         <div class="form-group">
-                          <input type="text" placeholder="Status" class="form-control" name="status" value="{{$user->status}}">
+                          <input type="text" placeholder="Status" class="form-control" name="status" maxlength="30" value="{{$user->status}}">
                         </div>
                     </div>
                   </div>

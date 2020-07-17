@@ -21,21 +21,13 @@
               <h2 class="no-margin-bottom">Group Arisan</h2>
             </div>
           </header>
-          <!-- Form input  -->
           <section class="forms"> 
             <div class="container-fluid">
               <div class="row">
-                <!-- Basic Form-->
                 <div class="col-lg-4">
                   <div class="card">
-                    <div class="card-close">
-                      <div class="dropdown">
-                        <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                        <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                      </div>
-                    </div>
                     <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Data Group</h3>
+                      <h5>Data Group</h5>
                     </div>
                     <div class="card-body">
                     @foreach($group as $result)
@@ -43,38 +35,31 @@
                         <p>Nama Group : {{$result->groups_name}}</p>
                         <p>Biaya : Rp {{$result->biaya}}</p>
                         <p>Jumlah Peserta : {{$result->jumlah_peserta}} Orang</p>
-                        <p>Total Hadiah : Rp {{$result->total_hadiah}}</p>
+                        <p>Total Hadiah : Rp {{$result->total_hadiah}} /pengundian</p>
                     </ul>
                     @endforeach
                     </div>
                   </div>
                 </div>
-                <!-- Horizontal Form-->
-                <div class="col-lg-8">
+                <div class="col-md-8">
                   <div class="card">
-                    <div class="card-close">
-                      <div class="dropdown">
-                        <button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                        <div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                      </div>
-                    </div>
-                    <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Detail Peserta</h3>
-                    </div>
+                    <!-- <div class="card-header d-flex align-items-center">
+                      <h5 class="pl-3"></i> Data Peserta</h5>
+                    </div> -->
                     <div class="card-body">
-                        <form method="POST" id="dynamic_form">
+                        <form method="POST" id="dynamic_form" onsubmit="return validation_members()" name="form_members">
                             <span id="result"></span>
-                                <table class="table table-bordered table-striped" id="user_table">
-                                    <thead>
+                                <table class="table" id="user_table">
+                                    <thead class="thead-dark">
                                         <tr>
-                                            <th>Nama</th>
-                                            <th>Email</th>
-                                            <th>Telpon</th>
-                                            <th></th>
+                                            <td>Nama Peserta</td>
+                                            <td>Alamat Email</td>
+                                            <td>No Telpon</td>
+                                            <td></td>
                                         </tr>
                                     </thead>
                                 <tbody>
-
+                                
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -82,16 +67,33 @@
                                     </tr>
                                 </tfoot>
                                 </table>
-                            <input type="submit" name="save" id="save" class="btn btn-outline-primary float-right" value="Simpan" />
+                                <button class="btn btn-outline-primary float-right">Batal</button>
+                            <input type="submit" name="save" id="save" class="btn btn-outline-primary float-right mr-2" value="Simpan" />
                         </form>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+
 @foreach($group as $result)
 <script>
+
+/**
+ * function validation
+ */
+
+//  function validation_members(){
+//    var x = document.forms["validation_members"]["nama"].value;
+
+//    if(x)
+//  }
+
+/**
+ * function add and remove
+ */
+
 $(document).ready(function(){
 
  var count = 1;
@@ -101,19 +103,19 @@ $(document).ready(function(){
  function dynamic_field(number)
  {
   html = '<tr>';
-        html += '<td><input type="text" name="nama[]" class="form-control" /></td>';
-        html += '<td><input type="email" name="email[]" class="form-control" /><input type="hidden" name="status_arisan[]" value="0"></td>';
+        html += '<td><input type="text" name="nama[]" class="form-control" maxlength="15"/></td>';
+        html += '<td><input type="email" name="email[]" class="form-control" maxlength="50"/><input type="hidden" name="status_arisan[]" value="0"></td>';
         @foreach($group as $result)
-        html += '<td><input type="text" name="telpon[]" class="form-control" max="12"/><input type="hidden" name="group_id[]" value="{{$result->id}}"></td>';
+        html += '<td><input type="text" name="telpon[]" class="form-control"  maxlength="12" minlength="11"/><input type="hidden" name="group_id[]" value="{{$result->id}}"></td>';
         @endforeach
         if(number > 1)
         {
-            html += '<td><button type="button" name="remove" id="" class="btn btn-outline-danger remove">-</button></td></tr>';
+            html += '<td><button type="button" name="remove" id="" class="btn btn-outline-warning remove"><i class="fa fa-minus-square"></i></button></td></tr>';
             $('tbody').append(html);
         }
         else
         {   
-            html += '<td><button type="button" name="add" id="add" class="btn btn-outline-primary">+</button></td></tr>';
+            html += '<td><button type="button" name="add" id="add" class="btn btn-outline-primary"><i class="fa fa-plus-square"></i></button></td></tr>';
             $('tbody').html(html);
         }
  }

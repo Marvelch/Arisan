@@ -13,7 +13,7 @@
     <title>Register | Booking Book </title>
     
     <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="{{asset('/front_end/images/favicon.png')}}" type="image/png">
+    <link rel="shortcut icon" href="{{asset('/front_end/images/bluelogo.png')}}" type="image/png">
 
     <!--====== Bootstrap css ======-->
     <link rel="stylesheet" href="{{asset('/front_end/css/bootstrap.min.css')}}">

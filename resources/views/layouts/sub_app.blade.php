@@ -6,7 +6,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Boo-Boo</title>
+    <title>BooBoo</title>
     <meta name="description" content="Temukan solusi terbaik untuk group arisan online. Buat Group arisan dengan cara yang sederhana dan mudah.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS-->
@@ -18,11 +18,12 @@
     <!-- Google fonts - Poppins -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" id="theme-stylesheet">
     <link rel="stylesheet" href="{{asset('css/style.default.css')}}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="front_end/images/bluelogo.png">
   </head>
   <body>
     <div class="page">
@@ -40,7 +41,7 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <!-- Navbar Header-->
               <div class="navbar-header">
-                <!-- Navbar Brand --><a href="index.html" class="navbar-brand d-none d-sm-inline-block">
+                <!-- Navbar Brand --><a href="{{route('home')}}" class="navbar-brand d-none d-sm-inline-block">
                   <div class="brand-text d-none d-lg-inline-block"><span>Booking Book</span></div>
                   <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BB</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
@@ -95,12 +96,11 @@
     </div>
     <!-- JavaScript files-->
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('vendor/popper.js/umd/popper.min.js')}}"> </script>
+    <!-- <script src="{{asset('vendor/popper.js/umd/popper.min.js')}}"> </script> -->
     <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
-    <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
+    <!-- <script src="{{asset('vendor/jquery.cookie/jquery.cookie.js')}}"> </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="{{asset('vendor/jquery-validation/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('js/charts-home.js')}}"></script>
     <script src="{{asset('js/app.js')}}"></script>
     <!-- Main File-->
     <script src="{{asset('js/front.js')}}"></script>

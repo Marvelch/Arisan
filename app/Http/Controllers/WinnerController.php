@@ -24,7 +24,7 @@ class WinnerController extends Controller
         $groups = Group::WHERE('users_id',$userID)
                         ->WHERE('status','=',1)
                         ->orderBy('created_at', 'desc')
-                        ->paginate(4);
+                        ->paginate(8);
 
         /**
          * Menampilkan Nilai Group_id Terbesar

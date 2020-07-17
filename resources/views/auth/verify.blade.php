@@ -121,7 +121,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
-                            <h1 style="font-size: 48px; font-weight: 400; margin: 2;"><img src="/front_end/images/bluelogo.png" alt="Logo" style="width:20rem"></h1> <img src=" https://img.icons8.com/clouds/100/000000/sad.png" width="125" height="120" style="display: block; border: 0px;" />
+                            <h1 style="font-size: 48px; font-weight: 400; margin: 2;"><img src="/front_end/images/bluelogo.png" alt="Logo" style="width:8rem"></h1> <img src=" https://img.icons8.com/clouds/100/000000/sad.png" width="125" height="120" style="display: block; border: 0px;" />
                         </td>
                     </tr>
                 </table>
@@ -154,7 +154,7 @@
                                             <tr>
                                             <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                                             @csrf
-                                                <td align="center" bgcolor="#007bff"><button type="submit" class="btn btn-outline-primary" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff;"><i>{{ __('Click here to request another') }}</i></button></td>
+                                                <td align="center" bgcolor="#007bff"><button type="submit" class="btn btn-outline-primary" style="color: #fff"><i>{{ __('Click here to request another') }}</i></button></td>
                                             </form>
                                             </tr>
                                         </table>

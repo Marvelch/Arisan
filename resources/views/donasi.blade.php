@@ -1,16 +1,5 @@
 @extends('layouts.sub_app')
 
-@section('nav_menu')
-  <ul class="list-unstyled">
-    <li><a href="{{route('home')}}"> <i class="icon-home"></i>Dashboard </a></li>
-    <li><a href="{{route('profile')}}"> <i class="fa fa-id-card-o"></i>Profile </a></li>
-    <li class="active"><a href="{{route('donation')}}"> <i class="fa fa-credit-card "></i>Donasi </a></li>
-    <li><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Group</a></li>
-  </ul><span class="heading">Layanan</span>
-  <ul class="list-unstyled">
-    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Kontak </a></li>
-  </ul>
-@endsection
 @section('sub_content')
 <div class="content-inner">
           <!-- Page Header-->

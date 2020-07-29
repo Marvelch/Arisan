@@ -3509,3 +3509,28 @@ a > code {
 .default-color{
   color: #007bff;
 }
+
+/*
+ vote script area
+*/
+.frame_vote
+{
+  padding:30px;
+}
+
+  /* price list css */
+
+.price-list
+{
+  border-radius: 20px;
+  box-shadow: 30px;
+}
+.subtitle
+{
+  padding: 20px;
+}
+
+.img-price
+{
+  width: 80%;
+}

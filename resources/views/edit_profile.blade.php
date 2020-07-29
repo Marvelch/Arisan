@@ -1,16 +1,5 @@
 @extends('layouts.sub_app')
 
-@section('nav_menu')
-  <ul class="list-unstyled">
-    <li><a href="{{route('home')}}"> <i class="icon-home"></i>Dashboard </a></li>
-    <li><a href="{{route('profile')}}"> <i class="fa fa-id-card-o"></i>Profile </a></li>
-    <li><a href="{{route('donation')}}"> <i class="fa fa-credit-card "></i>Donasi </a></li>
-    <li class="active"><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Group</a></li>
-  </ul><span class="heading">Layanan</span>
-  <ul class="list-unstyled">
-    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Bantuan </a></li>
-  </ul>
-@endsection
 @section('sub_content')
 <div class="content-inner">
           <!-- Page Header-->
@@ -93,14 +82,14 @@
                     <div class="form-group">
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                            <div class="input-group-text"><i class="fab fa-instagram-square fa-lg" aria-hidden="true"></i></div>
                             </div>
                             <input type="text" class="form-control" id="inlineFormInputGroup" name="instagram" placeholder="Instagram" value="{{$user->instagram}}">
                         </div>
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-twitter-square" aria-hidden="true"></i></div>
+                            <div class="input-group-text"><i class="fab fa-twitter-square fa-lg" aria-hidden="true"></i></div>
                             </div>
                             <input type="text" class="form-control" id="inlineFormInputGroup" name="twitter" placeholder="Twitter" value="{{$user->twitter}}">
                         </div>
@@ -108,7 +97,7 @@
                         <div class="form-group">
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fa fa-facebook-official" aria-hidden="true"></i></div>
+                            <div class="input-group-text"><i class="fab fa-facebook-square fa-lg" aria-hidden="true"></i></div>
                             </div>
                             <input type="text" class="form-control" id="inlineFormInputGroup" name="facebook" placeholder="Facebook" value="{{$user->facebook}}">
                         </div>

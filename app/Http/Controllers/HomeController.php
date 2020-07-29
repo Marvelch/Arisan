@@ -64,6 +64,13 @@ class HomeController extends Controller
         return view('home',['counts' => $hasil])->with(['count_group' => $hasil_group])->with(['ends' => $hasil_end])->with(['reports' => $hasil_report]);
     }
 
+    public function detailcart(Request $request)
+    {
+        $jenis_paket = $request->route('paket');
+       
+        return view('paket.detail', ['kode' => $jenis_paket]);
+    }
+
     public function donasi()
     {
         return view('donasi');

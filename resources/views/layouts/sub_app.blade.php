@@ -12,7 +12,8 @@
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}"> -->
     <!-- Fontastic Custom icon font-->
     <link rel="stylesheet" href="{{asset('css/fontastic.css')}}">
     <!-- Google fonts - Poppins -->
@@ -51,10 +52,12 @@
                 <!-- Search-->
                 <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
                 <!-- Messages                        -->
-                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange badge-corner">0</span></a>
+                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fas fa-bell"></i><span class="badge bg-orange badge-corner">0</span></a>
+                </li>
+                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fas fa-shopping-cart"></i><span class="badge bg-orange badge-corner">0</span></a>
                 </li>
                 <!-- Logout    -->
-                <li class="nav-item"><a class="nav-link logout" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <span class="d-none d-sm-inline">{{ __('Logout') }}</span><i class="fa fa-sign-out"></i></a></li>
+                <li class="nav-item"><a class="nav-link logout" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <span class="d-none d-sm-inline">{{ __('Logout') }}</span><i class="fas fa-sign-out-alt"></i></a></li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       @csrf
                 </form>
@@ -75,7 +78,17 @@
             </div>
           </div>
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-          @yield('nav_menu')
+        <ul class="list-unstyled">
+          <li><a href="{{route('home')}}"><i class="fas fa-home"></i>Dashboard </a></li>
+          <li><a href="{{route('profile')}}"><i class="fas fa-id-card-alt"></i>Profile</a></li>
+          <!-- <li><a href="{{route('donation')}}"> <i class="fa fa-credit-card "></i>Donasi </a></li> -->
+          <li><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Buat Group</a></li>
+          <!-- <li><a href="{{route('votes')}}"><i class="fas fa-vote-yea"></i></i>Buat Vote</a></li> -->
+          <li><a href="{{route('votes')}}"><i class="fas fa-money-check-alt"></i>Pembayaran</a></li>
+        </ul><span class="heading">Layanan</span>
+        <ul class="list-unstyled">
+          <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Bantuan </a></li>
+        </ul>
         </nav>
         @yield('sub_content')
         <!-- Page Footer-->

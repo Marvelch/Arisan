@@ -1,16 +1,5 @@
 @extends('layouts.sub_app')
 
-@section('nav_menu')
-  <ul class="list-unstyled">
-    <li><a href="{{route('home')}}"> <i class="icon-home"></i>Dashboard </a></li>
-    <li class="active"><a href="{{route('profile')}}"> <i class="fa fa-id-card-o"></i>Profile </a></li>
-    <li><a href="{{route('donation')}}"> <i class="fa fa-credit-card "></i>Donasi </a></li>
-    <li><a href="{{route('winner')}}"> <i class="fa fa-users"></i>Group</a></li>
-  </ul><span class="heading">Layanan</span>
-  <ul class="list-unstyled">
-    <li> <a href="{{route('contact')}}"> <i class="icon-mail"></i>Bantuan </a></li>
-  </ul>
-@endsection
 @section('sub_content')
 <div class="content-inner">
           <!-- Page Header-->
@@ -26,7 +15,7 @@
                   <div class="client card">
                     <div class="card-close">
                       <div class="dropdown">
-                        <button type="button" class="dropdown-toggle" onclick="window.location='{{url("profile_edit")}}'" title="Edit Profile"><i class="fa fa-pencil-square-o fa-lg default-color"></i></button>
+                        <button type="button" class="dropdown-toggle" onclick="window.location='{{url("profile_edit")}}'" title="Edit Profile"><i class="fas fa-edit fa-lg default-color"></i></button>
                       </div>
                     </div>
                     <div class="card-body text-center">
@@ -81,9 +70,9 @@
                     </div>
                       <div class="client-info">
                         <div class="row">
-                          <div class="col-4 text-right "><strong><a href="{{$user->facebook}}" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></strong></div>
-                          <div class="col-4"><a href="{{$user->twitter}}" target="_blank"><strong><i class="fa fa-twitter fa-lg"></a></i></strong></div>
-                          <div class="col-4 text-left"><a href="{{$user->instagram}}" target="_blank"><strong><i class="fa fa-instagram fa-lg"></a></i></strong></div>
+                          <div class="col-4 text-right "><strong><a href="{{$user->facebook}}" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a></strong></div>
+                          <div class="col-4"><a href="{{$user->twitter}}" target="_blank"><strong><i class="fab fa-instagram-square fa-2x"></i></a></strong></div>
+                          <div class="col-4 text-left"><a href="{{$user->instagram}}" target="_blank"><strong><i class="fab fa-twitter-square fa-2x"></i></a></strong></div>
                         </div>
                         <div class="text-center">
                           <span class="pt-2">

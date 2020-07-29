@@ -52,5 +52,27 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
     Route::get('page_lost','HomeController@page_error')->middleware('auth');
 
+    /** 
+     * Route Addcart & Pembayaran
+     * 
+     * Menggunakan fungsi javascript untuk menampilan pada icon cart dan menyimpan data pada database
+     * 
+     * */
+
+     Route::post('_addcart','HomeController@addcart')->name('_addcart');
+     Route::get('pay_detail/{paket}/','HomeController@detailcart')->name('_detail');
+
+
+    /**
+     * Blog
+     */
+
+     Route::get('Blog','BlogContoller@index')->name('blog')->middleware('auth');
+
+     /**
+      * Vote Route
+      */
+
+    Route::get('votes','VoteController@index')->name('votes')->middleware('auth');
   });
 

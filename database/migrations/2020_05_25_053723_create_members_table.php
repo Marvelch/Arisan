@@ -19,7 +19,7 @@ class CreateMembersTable extends Migration
             $table->foreign('group_id')->references('id')->on('group');
             $table->string('nama',100);
             $table->string('email');
-            $table->varchar('telpon');
+            $table->char('telpon');
             $table->boolean('status_arisan');
             $table->timestamps();
         });

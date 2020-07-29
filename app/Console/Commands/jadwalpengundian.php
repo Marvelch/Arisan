@@ -88,7 +88,7 @@ class jadwalpengundian extends Command
                 $rentawaktu = $date_result->rentan_waktu_pengocokan;
 
                 $date1 = str_replace('-', '/', $waktu);
-                $tomorrow = date('Y-m-d',strtotime($date1 . "+$rentawaktu days"));
+                $tomorrow = date('Y-m-d',strtotime($date1 . "+".$rentawaktu."days"));
 
                 DB::table('group')->where('id',$id_group_up)
                                   ->update(['waktu_pengocokan' => $tomorrow]);
